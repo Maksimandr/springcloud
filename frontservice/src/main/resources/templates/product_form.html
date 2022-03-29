@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма добавления продукта</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Форма добавления продукта</h1>
+    <nav class="nav nav-pills nav-justified">
+        <a class="nav-link" aria-current="page" href="/app">Главная</a>
+        <a class="nav-link" aria-current="page" href="/app/products">Список всех продуктов</a>
+        <a class="nav-link" aria-current="page" href="/app/products/add">Добавление продукта</a>
+    </nav>
+    <div class="row">
+        <form method="post" th:action="@{/products/add}"  class="col-md-6" th:object="${product}">
+            <div class="mb-3">
+                <label fclass="form-label">Название</label>
+                <input type="text" class="form-control" id="title" th:field="*{title}">
+                <div th:each="err : ${#fields.errors('title')}" th:text="${err}" class="alert alert-danger">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label fclass="form-label">Стоимость</label>
+                <input type="number" class="form-control" id="cost" th:field="*{cost}">
+                <div th:each="err : ${#fields.errors('cost')}" th:text="${err}" class="alert alert-danger">
+                </div>
+            </div>
+            <a th:href="@{'/'}" class="btn btn-secondary">Отмена</a>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
