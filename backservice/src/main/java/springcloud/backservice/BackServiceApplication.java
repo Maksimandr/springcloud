@@ -2,12 +2,14 @@ package springcloud.backservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-public class BackserviceApplication {
+@EnableEurekaClient
+public class BackServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackserviceApplication.class, args);
+		SpringApplication.run(BackServiceApplication.class, args);
 	}
 
 }

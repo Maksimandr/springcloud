@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/common-head">
+    <title>Список товаров</title>
+</head>
+<body>
+<nav th:replace="fragments/nav-bar::nav-bar">
+</nav>
+
+<div class="container">
+    <h1>Форма добавления товара</h1>
+
+    <div class="row">
+        <form method="post" th:action="@{/add}" class="col-md-6" th:object="${productShortDto}">
+            <div class="mb-3">
+                <label for="name" class="form-label">Название</label>
+                <input type="text" class="form-control" id="name" th:field="*{title}">
+                <br>
+            </div>
+            <div class="mb-3">
+                <label for="categories" class="form-label">Категория</label>
+                <input type="text" class="form-control" id="categories" th:field="*{category}">
+                <br>
+            </div>
+            <div class="mb-3">
+                <label for="score" class="form-label">Цена</label>
+                <input type="number" class="form-control" id="score" th:field="*{price}">
+                <br>
+            </div>
+            <a th:href="@{'/'}" class="btn btn-secondary">Отмена</a>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
