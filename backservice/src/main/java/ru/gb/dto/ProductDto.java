@@ -1,4 +1,4 @@
-package springcloud.frontservice.dto;
+package ru.gb.dto;
 
 import lombok.Data;
 

@@ -1,0 +1,30 @@
+server:
+  port: 19889
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: eureka-back-service
+  datasource:
+    driver-class-name: org.h2.Driver
+    # ??? ?????? ? h2 ? ???????? ?????? ????????? ? ??????? ????:
+    # url: jdbc:h2:file:C:/Users/.../TestDataBase
+    url: jdbc:h2:mem:D:/java/geekbrains/db/market-db;MODE=PostgreSQL
+    username: admin
+    password: admin
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+#  servlet:
+#    session:
+#      cookie:
+#        max-age: 10s

@@ -1,0 +1,23 @@
+server:
+  port: 5555
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      fetchRegistry: false
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: eureka-front-service
+          uri: lb://eureka-front-service
+          predicates:
+            - Path=/**
+#          filters:
+#            - StripPrefix=1
